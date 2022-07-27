@@ -1,0 +1,14 @@
+#container {
+    width: 1600px;
+    height: 800px;
+}
+/* 去掉高德地图自带图标 */
+.amap-logo,.amap-copyright{
+    display: none !important;
+}
+
+html, body, #container {
+    height: 100%;
+    width: 100%;
+}
+

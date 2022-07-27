@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <script type="text/javascript"
+        src="https://webapi.amap.com/maps?v=1.4.14&key=4f4e900da2d512badac9995728deb170"></script>
+    <title>高德地图快速入门</title>
+    <link rel="stylesheet" tyhe="text/css" href="map.css">
+    <style>
+        .title{
+            border-radius: 3px;
+            padding: 4px 16px;
+            white-space: nowrap;
+            color: rgb(130,85,13);
+            box-shadow: 0 6px  6px #000;
+            background-color: rgb(252,208,100);
+        }
+        .arrow{
+            width: 0;
+            height: 0;
+            border-top: solid 10px rgb(252,208,100);
+            border-left: solid 10px transparent;
+            border-right: solid 10px transparent;
+            border-bottom: solid 10px transparent;
+            position: relative;
+            left: 10px;
+        }
+    </style>
+</head>
+
+    </style>
+</head>
+
+<body>
+    <div id="container"></div>
+    <!-- <div id="haha">
+        <div class="title">哈哈哈哈</div>
+        <div class="arrow"></div>
+    </div> -->
+    <div id="contentBox"></div>
+    <style>
+
+    </style>
+    </head>
+
+    <body>
+        <div id="container"></div>
+        <script>
+            var map = new AMap.Map('container', {
+                zoom: 18,//级别，如果想显示得区域更具体可以调高级别
+                center: [116.306968, 39.983231],//中心点坐标
+                viewMode: '2D'//使用2D视图
+            });
+          
+// ----------------------------
+            var data = [
+                {
+                    positionX: 116.30635,
+                    positionY: 39.981759,
+                    text: "111"
+                },
+                {
+                    positionX: 116.35,
+                    positionY: 39.981759,
+                    text: "222"
+                },
+                {
+                    positionX: 116.4,
+                    positionY: 39.981759,
+                    text: "333"
+                },
+                {
+                    positionX: 116.4,
+                    positionY: 39.981759,
+                    text: "333"
+                },
+            ]
+            var domBox = document.getElementById("contentBox")
+            var domAll = ""
+            for(let i = 0; i < data.length; i++){
+                var dom1 = "<div id='id" + i + "'> <div class='title'>" + data[i].text + "</div> <div class='arrow'></div> </div>"  
+                domAll += dom1
+            }
+            domBox.innerHTML = domAll
+            for(let i = 0; i < data.length; i++){                
+                var dom2 = document.querySelector("#id" + i)
+                map.add(new AMap.Marker({
+                    position: new AMap.LngLat(data[i].positionX, data[i].positionY),
+                    anchor: 'bottom-center',
+                    content: dom2,
+                }));
+            }     
+
+       
+        </script>
+
+
+    </body>
+    <html>
